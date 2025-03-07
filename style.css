@@ -67,6 +67,17 @@ body {
     margin-bottom: 1rem;
 }
 
+/* 打字机效果的光标 */
+.hero-content h1::after {
+    content: '|';
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
 .projects {
     padding: 5rem 5%;
     max-width: 1200px;
@@ -89,7 +100,8 @@ body {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    transition: transform 0.5s ease;
+    transform-style: preserve-3d;
 }
 
 .project-card:hover {
@@ -161,6 +173,7 @@ body {
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
+    transition: transform 0.3s ease;
 }
 
 .contact {
@@ -285,6 +298,20 @@ body {
 .back-link:before {
     content: '←';
     font-size: 1.2rem;
+}
+
+/* 鼠标跟踪效果 */
+.cursor-effect {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #3498db;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s;
+    mix-blend-mode: difference;
 }
 
 @media (max-width: 768px) {
