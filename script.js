@@ -95,4 +95,75 @@ document.addEventListener('DOMContentLoaded', () => {
         const scrolled = (winScroll / height) * 100;
         scrollIndicator.style.width = scrolled + '%';
     });
+
+    // 添加鼠标跟踪效果
+    const cursor = document.createElement('div');
+    cursor.className = 'cursor-effect';
+    document.body.appendChild(cursor);
+
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+
+    // 添加技能标签悬浮效果
+    const skillTags = document.querySelectorAll('.skill-tag');
+    skillTags.forEach(tag => {
+        tag.addEventListener('mouseover', () => {
+            tag.style.transform = `rotate(${Math.random() * 10 - 5}deg) scale(1.1)`;
+        });
+        tag.addEventListener('mouseout', () => {
+            tag.style.transform = 'rotate(0deg) scale(1)';
+        });
+    });
+
+    // 添加打字机效果
+    const heroText = document.querySelector('.hero-content h1');
+    const text = heroText.textContent;
+    heroText.textContent = '';
+    let index = 0;
+    
+    function typeWriter() {
+        if (index < text.length) {
+            heroText.textContent += text.charAt(index);
+            index++;
+            setTimeout(typeWriter, 100);
+        }
+    }
+    
+    // 当hero区域可见时启动打字机效果
+    const heroObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            typeWriter();
+        }
+    });
+    
+    heroObserver.observe(heroText);
+
+    // 添加项目卡片3D悬浮效果
+    const cards = document.querySelectorAll('.project-card');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', handleCardMove);
+        card.addEventListener('mouseleave', handleCardLeave);
+    });
+
+    function handleCardMove(e) {
+        const card = e.currentTarget;
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+    }
+
+    function handleCardLeave(e) {
+        const card = e.currentTarget;
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+    }
 });
