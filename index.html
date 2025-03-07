@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="个人作品集展示网站，展示我的项目经验和技术能力">
+    <meta name="keywords" content="作品集, 前端开发, Web开发, 项目展示">
+    <meta name="author" content="您的名字">
+    <meta name="theme-color" content="#3498db">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="./images/favicon.svg">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <title>我的作品集</title>
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+    <base href="./">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        /* 添加关键样式以避免闪烁 */
+        .hero { min-height: 100vh; }
+        .section-padding { padding: 5rem 5%; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav" role="navigation" aria-label="主导航">
+            <div class="logo">我的作品集</div>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#projects">项目</a></li>
+                <li><a href="#about">关于我</a></li>
+                <li><a href="#contact">联系方式</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>欢迎来到我的作品集</h1>
+            <p>我是一名充满热情的开发者，专注于创造优秀的用户体验</p>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>我的项目</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./images/projects/project1.jpg" alt="项目预览" loading="lazy">
+                </div>
+                <div class="project-overlay">
+                    <h3>砖</h3>
+                    <p>书籍设计</p>
+                    <a href="project1.html" class="btn" target="_blank">查看详情</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./images/projects/project2.jpg" alt="项目二预览">
+                </div>
+                <div class="project-overlay">
+                    <h3>栖霞区残疾人联合会</h3>
+                    <p>品牌形象设计</p>
+                    <a href="project2.html" class="btn" target="_blank">查看详情</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./images/projects/project3.jpg" alt="项目三预览">
+                </div>
+                <div class="project-overlay">
+                    <h3>佘山兰笋</h3>
+                    <p>品牌形象设计</p>
+                    <a href="project3.html" class="btn" target="_blank">查看详情</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./images/projects/project4.jpg" alt="项目四预览">
+                </div>
+                <div class="project-overlay">
+                    <h3>华章四韵</h3>
+                    <p>文创设计</p>
+                    <a href="project4.html" class="btn" target="_blank">查看详情</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>关于我</h2>
+        <div class="about-content">
+            <img src="./images/profile.jpg" alt="个人照片" class="profile-img">
+            <div class="about-text">
+                <p>3年视觉设计经验，擅长通过用户行为数据优化界面视觉层级，曾为教育科技公司设计年度主视觉体系，提升课程转化率22%。目标成为用系统化设计思维解决复杂商业问题的视觉策略设计师。</p>
+                <div class="skills">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Photoshop</span>
+                    <span class="skill-tag">After Effects</span>
+                    <span class="skill-tag">Figma</span>
+                    <!-- 添加更多技能标签 -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>联系我</h2>
+        <div class="contact-content">
+            <p>如果您对我的作品感兴趣，欢迎通过以下方式联系我：</p>
+            <div class="contact-info">
+                <a href="mailto:1833281961@qq.com" class="contact-link">
+                    <i class="far fa-envelope"></i> Email
+                </a>
+                <a href="https://github.com/你的GitHub用户名" class="contact-link" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://linkedin.com/in/你的LinkedIn用户名" class="contact-link" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+            <form class="contact-form" action="https://formspree.io/f/xanewbkr" method="POST">
+                <div class="form-group">
+                    <label for="name">姓名：</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">您的邮箱：</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">留言内容：</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn">发送消息</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 我的作品集. All rights reserved.</p>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
